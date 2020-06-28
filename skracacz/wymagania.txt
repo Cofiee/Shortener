@@ -1,0 +1,21 @@
+PROJEKT #1: program skracający URL (praca indywidualna - 30 pkt.)
+
+1. Przykłady aplikacji skracających linki / ogólna zasada działania
+
+https://bit.ly
+https://www.lifewire.com/shortening-long-links-3486603
+https://zapier.com/blog/best-url-shorteners/
+https://blog.az.pl/skracanie-linkow-10-najpopularniejszych-serwisow-do-tworzenia-przyjaznych-adresow-www/
+
+2. Kluczowe funkcjonalności programu skracającego URL:
+funkcjonalność weryfikująca (wyszukiwanie) czy wprowadzony URL znajduje się już w Bazie skróconych linków oraz pełnych linków (dopuszczalne będzie rozwiązanie, gdy wykorzystane do tego celu będą tablice, zdecydowanie lepiej oceniane będzie rozwiązanie oparte o operacje na plikach);
+funkcjonalność skracania wprowadzonego URL z wykorzystaniem słownika o podstawie 62 składającego się ze znaków {"0-9", "a-z", "A-Z"} (sam link skrótu powinien mieć 5 losowych znaków, np. goo.gl/R6axW);
+funkcjonalność zwracająca nowoutworzony, skrócony URL  (skrócony link nie może się powtarzać - unikalność);
+funkcjonalność wyświetlająca stan (pełną zawartość) Bazy czyli skrótów oraz pełnych linków;
+
+3. Podczas oceny uwzględniane będą następujące elementy:
+projekt musi się kompilować i uruchamiać bez błędów w środowisku Dev-C++ lub Code::Blocks   {bazowe wymaganie : program który się nie kompiluje lub nie uruchamia - 0 pkt.};
+projekt musi realizować zadeklarowane założenia (tzw. kompletność - funkcjonalności z listy pkt.2) oraz działać poprawnie (zgodnie z oczekiwaniami) w założonych dziedzinach  {brak którejkolwiek z wymaganych funkcjonalności to 1/4 pkt mniej};
+do oceny, podczas prezentacji projektu, będzie wliczana umiejętność odpowiedzi na ewentualnie zadane pytania "dlaczego?".
+4. Termin oddania (ostateczny, preferowany wcześniejszy):
+piątek, 10 lipca 2020 r.
