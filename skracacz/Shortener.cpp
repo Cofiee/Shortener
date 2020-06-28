@@ -12,7 +12,7 @@ void Shortener::MainMenu()
 	string options[3] = {
 		"Dodaj nowy link do bazy danych",
 		"Wyœwietl bazê danych",
-		"Opóœæ program"
+		"Opuœæ program"
 	};
 	while (3 != answer)
 	{
