@@ -12,17 +12,34 @@ public:
 
 	~UserInterface();
 
-	void Pause(); //Metoda pauzujaca to co sie dzieje w programie i oczekujaca na aktywnosc na klawiaturze
+	/*Metoda pauzujaca to co sie dzieje w programie i oczekujaca na aktywnosc na klawiaturze*/
+	void Pause();
 
-	void ClearConsole(); //Metoda do czyszczenia zawartosci konsoli
+	/*Metoda do czyszczenia zawartosci konsoli*/
+	void ClearConsole();
 
-	string AskWord(); //Metoda proszaca o slowa. Przeprowadza kontrole poprawnosci. Zwraca obiekt typu string z podanym slowem.
+	/*Metoda proszaca o link. 
+	Przeprowadza kontrole poprawnosci. 
+	Zwraca obiekt typu string z podanym slowem.*/
+	string AskLink();
 
-	void WriteMessage(string message); //Metoda wypisuje w konsoli komunikat w odpowiednim formacie.
+	/*Metoda wypisuje w konsoli komunikat w odpowiednim formacie.
+		message - ciag znakow do wyswietlenia w konsoli
+	*/
+	void WriteMessage(string message);
 
-	void WriteMessage(char* message, int lenght); //Metoda wypisuje w konsoli komunikat w odpowiednim formacie.
+	/*Metoda wypisuje w konsoli komunikat w odpowiednim formacie.
+		message - wskaznik na tablice znakow
+		lenght - dlugos tablicy "message"
+	*/
+	void WriteMessage(char* message, int lenght);
 
-	int Choose(string message, string* option, int optNumb); //Metoda tworzaca liste z opcjami do wyboru.
+	/*Metoda tworzaca liste z opcjami do wyboru.
+		message - wiadomosc do wyswietlenia
+		option - wskaznik na tablice typu string zawierajace opcje do wyboru
+		optNumb - dlugosc tablicy "option";
+	*/
+	int Choose(string message, string* option, int optNumb);
 
 	template<typename T>
 	void WriteArray(T arr, int lenght); //Szablon do wypisania dowolnej tablicy.

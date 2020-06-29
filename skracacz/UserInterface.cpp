@@ -20,9 +20,9 @@ void UserInterface::ClearConsole()
 	system("cls");
 }
 
-std::string UserInterface::AskWord()
+std::string UserInterface::AskLink()
 {
-	cout << "Please enter guessed word\n>:";
+	cout << "Podaj link do skrócenia\n>:";
 	string word;
 	cin >> word;
 	while (cin.fail())
