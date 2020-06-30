@@ -5,5 +5,4 @@ int main()
 	setlocale(LC_CTYPE, "Polish");
 	Shortener shortener(MY_DOMAIN);
 	shortener.MainMenu();
-	//shortener.DO_WYWALENIA_POTEM();
 }

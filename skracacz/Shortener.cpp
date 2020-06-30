@@ -2,11 +2,15 @@
 
 Shortener::Shortener()
 {
+	fstream file(DATABASE_FILE, ios::app);
+	file.close();
 	dictionary = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 }
 
 Shortener::Shortener(string domain)
 {
+	fstream file(DATABASE_FILE, ios::app);
+	file.close();
 	this->domain = domain;
 	dictionary = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 }
@@ -14,39 +18,6 @@ Shortener::Shortener(string domain)
 void Shortener::SetDomain(string domain)
 {
 	this->domain = domain;
-}
-
-void Shortener::DO_WYWALENIA_POTEM()
-{
-	package a = CheckLink("https://www.szyb.ko/ABCDE");
-	if (1 == a.result)
-	{
-		uI.WriteMessage("Dziala");
-		uI.WriteMessage(a.link[1]);
-	}
-	else
-	{
-		uI.WriteMessage("Zjebalo sie");
-	}
-	a = CheckLink("https://www.deepl.com/pl/translator2");
-	if (1 == a.result)
-	{
-		uI.WriteMessage("Dziala");
-		uI.WriteMessage(a.link[0]);
-	}
-	else
-	{
-		uI.WriteMessage("Zjebalo sie");
-	}
-	a = CheckLink("KURWA MAC");
-	if (0 == a.result)
-	{
-		uI.WriteMessage("Dziala");
-	}
-	else
-	{
-		uI.WriteMessage("Zjebalo sie");
-	}
 }
 
 void Shortener::MainMenu()
@@ -68,7 +39,7 @@ void Shortener::MainMenu()
 			break;
 		}
 		case 2:
-
+			ShowDb();
 			break;
 		default:
 			break;
@@ -94,7 +65,9 @@ void Shortener::AddNewLink()
 			shortLink = LinkGen();
 			result = CheckLink(this->domain + shortLink);
 		} while (1 == result.result);
-		//ofstream file(DATABASE_FILE);
+		ofstream file(DATABASE_FILE, ios::app);
+		file << inputLink + "\t" + this->domain + shortLink + "\n";
+		file.close();
 		uI.WriteMessage("\nOto skrócony link :\n" + this->domain + shortLink);
 		uI.Pause();
 	}
@@ -131,8 +104,21 @@ string Shortener::LinkGen()
 	string shortLink = "    ";
 	for (int i = 0; i < 5; i++)
 	{
-		int random_number = (int)(rand() * 62 / RAND_MAX);
-		shortLink[i] = dictionary[random_number];
+		int random = (int)(rand() * 62 / RAND_MAX);
+		shortLink[i] = dictionary[random];
 	};
 	return shortLink;
+}
+
+void Shortener::ShowDb()
+{
+	uI.ClearConsole();
+	ifstream file(DATABASE_FILE);
+	string str;
+	while (getline(file, str))
+	{
+		uI.WriteMessage(str);
+	}
+	file.close();
+	uI.Pause();
 }

@@ -15,7 +15,6 @@ struct package
 class Shortener
 {
 private:
-	fstream handler;
 	string dictionary;
 	string domain;
 	UserInterface uI;
@@ -33,8 +32,6 @@ public:
 		domain - tutaj nalezy podac swoja domene
 	*/
 	void SetDomain(string domain);
-
-	void DO_WYWALENIA_POTEM();
 
 	/*Metoda odpowiadajaca za logiczna czesc menu glownego*/
 	void MainMenu();
@@ -56,5 +53,8 @@ public:
 		metoda zwraca ciag pieciu losowo wygenerowanych znakow
 	*/
 	string LinkGen();
+
+	/*Metoda wyswietlajaca zawartosc bazy danych*/
+	void ShowDb();
 };
 

@@ -4,10 +4,6 @@ UserInterface::UserInterface()
 {
 }
 
-UserInterface::~UserInterface()
-{
-}
-
 void UserInterface::Pause()
 {
 	cout << "Press a KEY to continue" << endl;
@@ -39,14 +35,6 @@ void UserInterface::WriteMessage(string message)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FORMAT);
 	cout << message << endl;
-}
-
-void UserInterface::WriteMessage(char* message, int lenght)
-{
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FORMAT);
-	for (int i = 0; i < lenght && message[i] != 0; ++i)
-		putchar(message[i]);
-	putchar('\n');
 }
 
 int UserInterface::Choose(string message, string* option, int optNumb)
