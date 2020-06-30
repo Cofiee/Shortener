@@ -3,8 +3,15 @@
 #include <stdlib.h>
 #include <math.h>
 #include "UserInterface.h"
-
+#define DATABASE_FILE "database.txt"
 using namespace std;
+
+struct package
+{
+	int result;
+	string link[2];
+};
+
 class Shortener
 {
 private:
@@ -36,14 +43,14 @@ public:
 	void AddNewLink();
 
 	/*Metoda sprawdzajaca czy podany link znajduje sie juz w bazie danych
-		mode - wybor tybu metody:  
-		0 - sprawdza czy dlugi link jest juz w bazie danych 
-		1 - sprawdza czy skrocony link jest juz w bazie danych
-
 		metoda zwraca:
-			
+			package:
+				result  0 - jezli link nie byl wprowadzony do bazy danych; 1 - jezeli znajdzie podany link w bazie danych;
+				link[0] - dlugi link w bazie danych
+				link[1] - krotki link w bazie danych
+
 	*/
-	int CheckLink(int mode, string link);
+	package CheckLink(string link);
 
 	/*Generuje skrocone linki
 		metoda zwraca ciag pieciu losowo wygenerowanych znakow
